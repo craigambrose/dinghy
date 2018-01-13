@@ -16,12 +16,15 @@
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.26.0",
     "blessed": "^0.1.81",
+    "lodash": "^4.17.4",
+    "pull-stream": "^3.6.1",
     "react": "^16.2.0",
-    "react-blessed": "^0.2.1"
+    "react-blessed": "^0.2.1",
+    "ssb-client": "^4.5.2"
   },
   "devDependencies": {
     "standard": "^10.0.3"
   },
   "author": "Craig Ambrose",
-  "license": "GPL v3.0"
+  "license": "GPL-3.0"
 }
