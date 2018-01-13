@@ -25,6 +25,10 @@ export default class ThreadWindow {
     return map(this.roots, 'key')
   }
 
+  threads () {
+    return this.roots
+  }
+
   lobbyKeys () {
     return map(this.lobby, 'key')
   }

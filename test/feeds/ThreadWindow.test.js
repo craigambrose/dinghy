@@ -36,10 +36,3 @@ describe('ThreadWindow', function () {
     })
   })
 })
-
-// A new root message creates a thread and adds it to the window
-// On a new reply
-//    if it already has a thread in the window
-//        wants to update that thread
-//    if it doesn't have a thread in the window
-//        wants to create a thread and offer it to the window
