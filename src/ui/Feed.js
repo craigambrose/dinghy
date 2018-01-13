@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { get } from 'lodash'
 
 const Client = require('ssb-client')
 const pull = require('pull-stream')
@@ -7,7 +8,10 @@ function loadMessages (handleMessage) {
   Client((err, sbot) => {
     if (err) throw err
 
-    var source = sbot.createFeedStream({ reverse: true, limit: 10 })
+    var minutes = 60 * 1000
+    var someTimeAgo = Number(new Date()) - 60 * minutes
+
+    var source = sbot.createFeedStream({ reverse: true, gt: someTimeAgo, live: true })
     var sink = pull.drain(handleMessage)
 
     pull(
@@ -28,6 +32,8 @@ class Feed extends Component {
   }
 
   receivedMessage (message) {
+    if (message.sync) return
+
     this.setState({messages: [message, ...this.state.messages]})
   }
 
@@ -41,7 +47,7 @@ class Feed extends Component {
   }
 
   renderMessage (message) {
-    return <box key={message.key} width='90%'><text>{message.key}</text></box>
+    return <box key={message.key} width='90%'><text>{JSON.stringify(get(message, 'value.content'))}</text></box>
   }
 }
 

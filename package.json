@@ -4,7 +4,7 @@
   "description": "An ascii gossip client for Secure Scuttlebutt",
   "main": "index.js",
   "scripts": {
-    "test": "standard",
+    "test": "mocha && standard",
     "start": "node index.js"
   },
   "dependencies": {
@@ -16,15 +16,31 @@
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.26.0",
     "blessed": "^0.1.81",
+    "expect.js": "^0.3.1",
+    "faucet": "0.0.1",
     "lodash": "^4.17.4",
+    "mocha": "^4.1.0",
     "pull-stream": "^3.6.1",
     "react": "^16.2.0",
     "react-blessed": "^0.2.1",
-    "ssb-client": "^4.5.2"
+    "ssb-client": "^4.5.2",
+    "tape": "^4.8.0"
   },
   "devDependencies": {
     "standard": "^10.0.3"
   },
   "author": "Craig Ambrose",
-  "license": "GPL-3.0"
+  "license": "GPL-3.0",
+  "standard": {
+    "globals": [
+      "describe",
+      "context",
+      "before",
+      "beforeEach",
+      "after",
+      "afterEach",
+      "it",
+      "expect"
+    ]
+  }
 }
