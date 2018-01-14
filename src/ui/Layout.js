@@ -1,15 +1,12 @@
 import React, {Component} from 'react'
 import Feed from './Feed'
+// import Console from './Console'
 
 const stylesheet = {
   bordered: {
-    border: {
-      type: 'line'
-    },
+    border: { type: 'line' },
     style: {
-      border: {
-        fg: 'blue'
-      }
+      border: { fg: 'blue' }
     }
   }
 }
@@ -17,9 +14,16 @@ const stylesheet = {
 class Layout extends Component {
   render () {
     return (
-      <box top='center' left='center' width='100%' height='100%' label=' Your Scuttlebutt Feed ' class={stylesheet.bordered}>
-        <Feed />
-      </box>
+      <element>
+        <box top='20%' left={0} right={0} bottom={0} label=' Your Scuttlebutt Feed ' class={stylesheet.bordered}>
+          <Feed />
+        </box>
+        {
+          /* <box top='70%' left={0} right={0} bottom={0} label=' Console Logs ' class={stylesheet.bordered}>
+            <Console />
+          </box> */
+        }
+      </element>
     )
   }
 }

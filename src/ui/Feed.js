@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { get } from 'lodash'
+import Post from './Post'
 import ThreadWindow from '../feeds/ThreadWindow'
 
 const Client = require('ssb-client')
@@ -48,14 +48,14 @@ class Feed extends Component {
   render () {
     const messages = this.state.messages || []
     return (
-      <layout width='95%' height='95%'>
+      <layout top={0} bottom={0} left={0} right={0}>
         { messages.map(this.renderMessage.bind(this)) }
       </layout>
     )
   }
 
   renderMessage (message) {
-    return <box key={message.key} width='90%'><text>{JSON.stringify(get(message, 'value.content'))}</text></box>
+    return <Post key={message.key} message={message} />
   }
 }
 
